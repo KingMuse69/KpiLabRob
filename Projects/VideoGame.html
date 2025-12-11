@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project T.J.O.C.</title>
+    <style>
+
+        body {
+            font-family: 'Courier New', Courier, monospace; 
+            background-color: #000;
+            color: #00FF00; 
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FF0000;
+            border-bottom: 2px solid #00FF00;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            margin: 20px auto;
+            border: 1px solid #00FF00;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .menu-button {
+            background-color: #333;
+            color: #00FF00;
+            border: 1px solid #00FF00;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .menu-button:hover {
+            background-color: #00FF00;
+            color: #000;
+        }
+
+        .char-preview {
+            display: inline-block;
+            margin: 15px;
+            cursor: pointer;
+            border: 1px solid #00FF00;
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+            height: 300px; 
+            overflow: hidden; 
+        }
+
+        .char-preview:hover {
+            background-color: #1a1a1a;
+        }
+
+        .char-preview img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #FF0000;
+        }
+
+        .char-info p, .char-info ul {
+            margin-left: 20px;
+        }
+
+        .char-info-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 1px solid #00FF00;
+            margin: 15px 0;
+            display: block;
+        }
+
+        .exit-button {
+            margin-top: 20px;
+            background-color: #FF0000;
+            color: #000;
+            border: 1px solid #FF0000;
+        }
+        .exit-button:hover {
+            background-color: #FF6666;
+            color: #000;
+        }
+
+        #creator-credit {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            font-size: 0.8em;
+            color: #00FF00;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="title">--// PROJECT T.J.O.C. //--</h1>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section, #main-menu');
+            sections.forEach(sec => sec.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+            document.getElementById('creator-credit').style.display = 'block';
+        }
+
+        function showCharacterInfo(charId) {
+            document.getElementById('experiments-menu').style.display = 'none';
+
+            document.getElementById(charId).style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('main-menu');
+        });
+    </script>
+
+    <div id="main-menu" class="section" style="display: block; text-align: center;">
+        <p>:: SELECT OPERATION ::</p>
+        <button class="menu-button" onclick="showSection('overview')">OVERVIEW</button>
+        <button class="menu-button" onclick="showSection('experiments-menu')">EXPERIMENTS</button>
+    </div>
+
+    <div id="overview" class="section">
+        <h2>>> OVERVIEW</h2>
+        <p><strong>MISSION:</strong> Document and analyze the reconstructed endoskeletal units designated as "The T.J.O.C. Experiments."</p>
+        <p><strong>BACKGROUND:</strong> This website serves as a confidential database for recording data gathered from the remnants of the Afton Robotics facility. Following the structural collapse and subsequent retrieval operations, four primary endoskeletal units were recovered. Initial analysis suggests they exhibit an unprecedented level of self-assembly and malicious autonomy, likely a consequence of extreme environmental stress and unknown organic/digital contamination.</p>
+        <p><strong>PURPOSE:</strong> The goal of Project T.J.O.C. is to understand the behavioral patterns, structural integrity, and inherent weaknesses of these units. A fifth entity, designated "Creation," appeared later and is believed to be an amalgamation of the others' components and code, representing a major threat and a complete failure of containment protocols.</p>
+        <p><strong>STATUS:</strong> **CRITICAL. CONTAINMENT BREACH IMMINENT.**</p>
+
+        <button class="menu-button exit-button" onclick="showSection('main-menu')">EXIT TO MAIN MENU</button>
+    </div>
+
+    <div id="experiments-menu" class="section" style="text-align: center;">
+        <h2>>> EXPERIMENTS - UNIT SELECTION</h2>
+
+        <div class="char-preview" onclick="showCharacterInfo('wrecker-info')">
+            <img src="Endo_R.webp" alt="Wrecker Preview">
+            <p>WRECKER</p>
+        </div>
+
+        <div class="char-preview" onclick="showCharacterInfo('angel-info')">
+            <img src="Endo_C.PNG.webp" alt="Angel Preview">
+            <p>ANGEL</p>
+        </div>
+
+        <div class="char-preview" onclick="showCharacterInfo('theblind-info')">
+            <img src="Endo_F.webp" alt="The Blind Preview">
+            <p>THE BLIND</p>
+        </div>
+
+        <div class="char-preview" onclick="showCharacterInfo('styx-info')">
+            <img src="Endo_F.PNG.webp" alt="Styx Preview">
+            <p>STYX</p> 
+        </div>
+
+        <div class="char-preview" onclick="showCharacterInfo('creation-info')">
+            <img src="Creation.webp" alt="Creation Preview">
+            <p>CREATION</p>
+        </div>
+
+        <button class="menu-button exit-button" onclick="showSection('main-menu')">EXIT TO MAIN MENU</button>
+    </div>
+
+    <div id="wrecker-info" class="section char-info">
+        <h2>>> WRECKER - UNIT ID: E-WKR-01</h2>
+        <img src="Endo_R.webp" alt="Wrecker Full Image" class="char-info-img">
+        <p><strong>BIO:</strong> A primarily humanoid endoskeleton defined by a squared, skeletal head structure and minimal external wiring. Wrecker is observed to move with methodical, almost unnatural silence, contrasting the chaotic nature of the other units. Its frame is notably rigid, suggesting a foundation in older, more durable prototypes.</p>
+        <p><strong>PERSONALITY TRAITS:</strong></p>
+        <ul>
+            <li>Methodical: Tracks targets with calculated precision, preferring stalking over direct confrontation.</li>
+            <li>Silent: Nearly undetectable through standard audio monitoring.</li>
+            <li>Aggressive: Once a target is acquired, the pursuit is relentless and brutal.</li>
+        </ul>
+        <p><strong>WEAKNESS:</strong></p>
+        <ul>
+            <li>Sound-based Distractions: Loud, sudden noises can temporarily halt its movement as it recalibrates its internal sensors.</li>
+            <li>Fixed Pathing:Exhibits a tendency to follow predictable patrol routes which can be exploited.</li>
+        </ul>
+        <button class="menu-button exit-button" onclick="showSection('experiments-menu')">BACK TO EXPERIMENTS</button>
+    </div>
+
+    <div id="angel-info" class="section char-info">
+        <h2>>> ANGEL - UNIT ID: E-ANG-02</h2>
+        <img src="Endo_C.PNG.webp" alt="Angel Full Image" class="char-info-img">
+        <p><strong>BIO:</strong> Characterized by a large, gaping, skeletal jaw and elongated arms. Angel's frame appears to be a composite of various wire bundles, giving it a stringy, disorganized appearance. It often adopts a hunched posture, adding to its unsettling, predatory look. The large mouth cavity appears to amplify sound.</p>
+        <p><strong>PERSONALITY TRAITS:</strong></p>
+        <ul>
+            <li>Erratic: Movement is unpredictable, switching between fast sprints and unsettling stillness.</li>
+            <li>Vocal: Utilizes loud, distorted audio cues and shrieks to disorient and locate targets.</li>
+            <li>Territorial: Strongly defends areas it has claimed, attacking anything that enters its zone.</li>
+        </ul>
+        <p><strong>WEAKNESS:</strong></p>
+        <ul>
+            <li>Light Sensitivity: Strong, directed bursts of light can cause it to recoil and momentarily retreat.</li>
+            <li>Structural Instability: Rapid, jerky movements can sometimes cause minor internal system failures, slowing it down.</li>
+        </ul>
+        <button class="menu-button exit-button" onclick="showSection('experiments-menu')">BACK TO EXPERIMENTS</button>
+    </div>
+
+    <div id="theblind-info" class="section char-info">
+        <h2>>> THE BLIND - UNIT ID: E-BLD-03</h2>
+        <img src="Endo_F.webp" alt="The Blind Full Image" class="char-info-img">
+        <p><strong>BIO:</strong> A heavily wired and tangled unit with prominent, blocky hands that appear to be repurposed from heavy machinery. The key feature is the lack of traditional optical sensors; its entire head structure is covered in dense wiring, suggesting a reliance on non-visual sensory input like vibration or thermal detection.</p>
+        <p><strong>PERSONALITY TRAITS:</strong></p>
+        <ul>
+            <li>Tactile: Relies heavily on physical contact and vibration for navigation and attack.</li>
+            <li>Brute Force: Attacks are characterized by powerful, sweeping movements designed to crush and disable.</li>
+            <li>Unwavering: The lack of sight makes it immune to visual distractions, forcing physical solutions.</li>
+        </ul>
+        <p><strong>WEAKNESS:</strong></p>
+        <ul>
+            <li>Thermal Masking: Use of cold-suppressant materials or extreme low-temperature environments can render it effectively blind and unable to track.</li>
+            <li>Slow Reaction to Air Movement: Air flow (e.g., fans, vents) does not provide consistent or clear information, making it slow to react to airborne threats.</li>
+        </ul>
+        <button class="menu-button exit-button" onclick="showSection('experiments-menu')">BACK TO EXPERIMENTS</button>
+    </div>
+
+    <div id="styx-info" class="section char-info">
+        <h2>>> STYX - UNIT ID: E-STX-04</h2>
+        <img src="Endo_F.PNG.webp" alt="Styx Full Image" class="char-info-img">
+        <p><strong>BIO:</strong> A slender, wire-based endoskeleton with distinct, large, round ear-like plates on its head and a single, glowing optical sensor. Styx is the most 'clean' looking of the initial four, suggesting a design closer to a standard prototype, yet it possesses the same terrifying autonomy.</p>
+        <p><strong>PERSONALITY TRAITS:</strong></p>
+        <ul>
+            <li>Observational: Spends prolonged periods watching and gathering data before attacking.</li>
+            <li>Agile: Capable of quick shifts in direction and exploiting environmental cover.</li>
+            <li>Evasive: Prioritizes escape and repositioning if directly confronted and damaged.</li>
+            </ul>
+        <p><strong>WEAKNESS:</strong></p>
+        <ul>
+            <li>Infrared Jamming: Its single optic appears highly dependent on IR spectrum; a strong IR emitter can overwhelm and temporarily disable its targeting.</li>
+            <li>Environmental Obstacles: Its agility can be turned into a weakness; tight, cluttered spaces often tangle its elongated wiring.</li>
+        </ul>
+        <button class="menu-button exit-button" onclick="showSection('experiments-menu')">BACK TO EXPERIMENTS</button>
+    </div>
+
+    <div id="creation-info" class="section char-info">
+        <h2>>> CREATION - UNIT ID: E-CRT-05 (ANOMALY)</h2>
+        <img src="Creation.webp" alt="Creation Full Image" class="char-info-img">
+        <p><strong>BIO:</strong> **DATA CORRUPTED**</p>
+        <p>Analysis suggests E-CRT-05 is a fusion of components and software from the four preceding units (Wrecker, Angel, The Blind, Styx). It exhibits multiple heads/masks, red glowing optics, and a massive, tangled structure. Its movement is a disturbing crawl, suggesting incredible weight and power.</p>
+        <p><strong>PERSONALITY TRAITS:</strong></p>
+        <ul>
+            <li>Unknown/Composite: Behavior is highly erratic and combines traits of all four previous units.</li>
+            <li>Overwhelming Presence: Its sheer size and noise dominate any environment it enters.</li>
+        </ul>
+        <p><strong>WEAKNESS:</strong></p>
+        <ul>
+            <li>None Discovered: Current mitigation strategies have proven ineffective. Containment is the only objective.</li>
+            <li>Energy Drain: Preliminary scans suggest it requires a tremendous power supply to maintain its form, but no method for exploitation is confirmed.</li>
+        </ul>
+        <p style="color: #FF0000;">WARNING: AVOID DIRECT CONTACT AT ALL COSTS.</p>
+
+        <button class="menu-button exit-button" onclick="showSection('experiments-menu')">BACK TO EXPERIMENTS</button>
+    </div>
+
+    <div id="creator-credit">
+        Made by Bilash Oleksii/ IM-52
+    </div>
+
+</body>
+</html>
