@@ -1,0 +1,65 @@
+// Bilash oleksii IM-52
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Guessing Game</title>
+    <title>Bilash Oleksii | IM-52</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f2f5; }
+        .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        input { padding: 10px; width: 50px; margin-bottom: 10px; }
+        button { padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
+        button:hover { background-color: #0056b3; }
+        #message { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Guess the Number</h1>
+    <p>I'm thinking of a number between 1 and 100.</p>
+    
+    <input type="number" id="guessInput" placeholder="0">
+    <br>
+    <button onclick="checkGuess()">Submit Guess</button>
+
+    <p id="message"></p>
+    <button id="resetBtn" style="display:none;" onclick="resetGame()">Play Again</button>
+</div>
+
+<script>
+    // Game Logic
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+        const guess = document.getElementById('guessInput').value;
+        const message = document.getElementById('message');
+        const resetBtn = document.getElementById('resetBtn');
+        attempts++;
+
+        if (guess == randomNumber) {
+            message.textContent = `Correct! It took you ${attempts} tries.`;
+            message.style.color = "green";
+            resetBtn.style.display = "inline-block";
+        } else if (guess > randomNumber) {
+            message.textContent = "Too high! Try again.";
+            message.style.color = "red";
+        } else if (guess < randomNumber) {
+            message.textContent = "Too low! Try again.";
+            message.style.color = "red";
+        }
+    }
+
+    function resetGame() {
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+        attempts = 0;
+        document.getElementById('message').textContent = "";
+        document.getElementById('guessInput').value = "";
+        document.getElementById('resetBtn').style.display = "none";
+    }
+</script>
+
+</body>
+</html>
